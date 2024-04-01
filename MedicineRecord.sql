@@ -1,0 +1,40 @@
+--------------------------------------------------------
+--  File created - Thursday-October-06-2022   
+--------------------------------------------------------
+--------------------------------------------------------
+--  DDL for Table MEDICINE_RECORD
+--------------------------------------------------------
+
+  CREATE TABLE "F4RAHIM"."MEDICINE_RECORD" 
+   (	"HEALTH_ID" NUMBER(*,0), 
+	"START_DATE" DATE, 
+	"DOSAGE" NUMBER(3,1), 
+	"MEDICINE" VARCHAR2(200 BYTE), 
+	"SIDE_EFFECTS_NOTES" VARCHAR2(200 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1 BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "DBCOURSE" ;
+REM INSERTING into F4RAHIM.MEDICINE_RECORD
+SET DEFINE OFF;
+Insert into F4RAHIM.MEDICINE_RECORD (HEALTH_ID,START_DATE,DOSAGE,MEDICINE,SIDE_EFFECTS_NOTES) values (123456789,to_date('22-09-27','RR-MM-DD'),21,'Tylenol','Headache');
+--------------------------------------------------------
+--  Constraints for Table MEDICINE_RECORD
+--------------------------------------------------------
+
+  ALTER TABLE "F4RAHIM"."MEDICINE_RECORD" MODIFY ("HEALTH_ID" NOT NULL ENABLE);
+ 
+  ALTER TABLE "F4RAHIM"."MEDICINE_RECORD" MODIFY ("START_DATE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "F4RAHIM"."MEDICINE_RECORD" MODIFY ("DOSAGE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "F4RAHIM"."MEDICINE_RECORD" MODIFY ("MEDICINE" NOT NULL ENABLE);
+ 
+  ALTER TABLE "F4RAHIM"."MEDICINE_RECORD" MODIFY ("SIDE_EFFECTS_NOTES" NOT NULL ENABLE);
+--------------------------------------------------------
+--  Ref Constraints for Table MEDICINE_RECORD
+--------------------------------------------------------
+
+  ALTER TABLE "F4RAHIM"."MEDICINE_RECORD" ADD FOREIGN KEY ("HEALTH_ID")
+	  REFERENCES "F4RAHIM"."MEDICAL_RECORD" ("HEALTH_CARD_NUMBER") ENABLE;
